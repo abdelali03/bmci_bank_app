@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Transaction History - Goldencat Bank</title>
+    <title>Transaction History - BMCI</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #000000, #ffd700);
-            color: #ffffff;
+            background: linear-gradient(to right, #4EBB77, #A7E1D7); /* BNP Paribas Green */
+            color: #003B5C; /* Dark Blue */
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -18,77 +19,85 @@
         }
 
         .navbar-custom {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #4EBB77; /* BNP Paribas Green */
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-custom a {
             color: #ffffff !important;
         }
 
-        .navbar-custom .navbar-brand {
-            font-weight: bold;
-        }
-
         .container {
-            max-width: 1000px;
-            margin-top: 80px; /* Reduced margin for the table to be closer to the top */
-            text-align: center;
+            max-width: 800px;
+            margin-top: 80px;
+            padding: 20px;
+            background-color: white; /* Card background */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             margin-bottom: 20px;
+            color: #003B5C; /* Dark Blue */
+            font-weight: 600;
         }
 
         .table-custom {
-            background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+            background-color: rgba(255, 255, 255, 0.9); /* Light background for the table */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            overflow-x: auto; /* Ensures table is responsive */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
 
         .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(255, 255, 255, 0.1); /* Slightly lighter row color */
+            background-color: rgba(0, 0, 0, 0.05); /* Light row color */
         }
 
         .table-striped td, .table-striped th {
-            color: #ffffff; /* White text color for visibility */
-            font-weight: bold; /* Bolder text for readability */
-            padding: 15px; /* Increase padding for better spacing */
-            border-bottom: 1px solid #ffd700; /* Yellow border for rows */
+            color: #003B5C; /* Dark Blue */
+            font-weight: bold;
+            padding: 15px;
+            border-bottom: 1px solid #4EBB77; /* BNP Paribas Green border for rows */
         }
 
         .table-striped th {
-            background-color: rgba(255, 215, 0, 0.2); /* Light golden background for headers */
+            background-color: rgba(78, 187, 119, 0.2); /* Light BNP Green background for headers */
         }
 
         .text-success {
-            color: #28a745 !important;
+            color: #28a745 !important; /* Green for deposits */
         }
 
         .text-danger {
-            color: #dc3545 !important;
+            color: #dc3545 !important; /* Red for withdrawals */
         }
 
         .custom-link {
-            color: #ffd700;
+            color: #4EBB77; /* BNP Paribas Green */
             text-decoration: none;
             font-weight: bold;
         }
 
         .custom-link:hover {
-            color: #ffecb3;
             text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                box-shadow: none; /* Remove shadow for mobile */
+            }
         }
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-custom">
-    <a class="navbar-brand" href="#">Goldencat Bank</a>
+    <a class="navbar-brand" href="#">BMCI BANK</a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="/transactions">Transactions</a></li>
@@ -125,5 +134,8 @@
     <p class="text-center"><a href="/dashboard" class="custom-link">Back to Dashboard</a></p>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

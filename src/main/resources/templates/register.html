@@ -1,155 +1,133 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Register - Goldencat Bank</title>
+    <title>Register - BMCI Bank</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #000000, #ffd700);
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .navbar-custom {
-            background-color: rgba(0, 0, 0, 0.7);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .navbar-custom a {
-            color: #ffffff !important;
-        }
-
-        .navbar-custom .navbar-brand {
-            font-weight: bold;
-        }
-
-        .navbar-custom .social-icons a {
-            color: #ffffff;
-            margin-left: 15px;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-custom .social-icons a:hover {
-            color: #ffd700;
-        }
-
         .container {
             max-width: 450px;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            position: relative;
+            padding: 40px;
+            background-color: #ffffff; /* White background */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
+        .container img {
+            width: 100px; /* Adjust logo size */
+            margin-bottom: 20px; /* Space below the logo */
+        }
+
         .container h2 {
-            color: #ffffff;
+            color: #006d4c; /* BNP Green */
             margin-bottom: 20px;
         }
 
         .form-group label {
-            color: #dddddd;
             text-align: left;
             display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555; /* Darker gray for labels */
         }
 
         .form-group input {
-            border: 1px solid #ffd700;
-            background-color: #333;
-            color: #ffffff;
+            border: 1px solid #006d4c; /* BNP Green border */
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            background-color: #f9f9f9; /* Light background for inputs */
+        }
+
+        .form-group input:focus {
+            border-color: #00543d; /* Darker green */
+            box-shadow: 0 0 5px rgba(0, 109, 76, 0.5); /* Soft green shadow */
         }
 
         .btn {
-            background-color: #ffd700;
+            background-color: #006d4c; /* BNP Green */
             border: none;
-            color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
             transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #ffc700;
-        }
-
-        .custom-link {
-            color: #ffd700;
-            text-decoration: none;
             font-weight: bold;
         }
 
+        .btn:hover {
+            background-color: #00543d; /* Darker green on hover */
+        }
+
+        .custom-link {
+            color: #006d4c;
+            text-decoration: none;
+        }
+
         .custom-link:hover {
-            color: #ffecb3;
             text-decoration: underline;
         }
 
         .footer {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: #006d4c; /* BNP Green */
             color: white;
-            padding: 15px 0;
+            padding: 10px 0;
             font-size: 14px;
             position: fixed;
             bottom: 0;
             width: 100%;
             text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
+        /* Additional styling for social icons */
+        .social-icons a {
+            color: #006d4c;
+            margin-left: 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #00543d; /* Darker green on hover */
         }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <a class="navbar-brand" href="#">Goldencat Bank</a>
-    <div class="ml-auto social-icons">
-        <a href="https://www.youtube.com" target="_blank" title="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-        </a>
-    </div>
-</nav>
-
 <div class="container">
-    <h2 class="text-center">Register a New Account</h2>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXcajF9XfEITApTn5Jsxc53FKGRb6CrdZ6w&s" alt="BMCI Bank Logo" /> <!-- Replace with actual logo path -->
+    <h2>Register a New Account</h2>
     <form method="post" action="/register">
         <div class="form-group">
-            <label>Username:</label>
+            <label for="username">Username:</label>
             <input type="text" class="form-control" name="username" required />
         </div>
         <div class="form-group">
-            <label>Password:</label>
+            <label for="password">Password:</label>
             <input type="password" class="form-control" name="password" required />
         </div>
         <button type="submit" class="btn btn-block">Register</button>
     </form>
-    <p class="text-center mt-3">Already have an account? <a href="/login" class="custom-link">Login here</a></p>
+    <p class="mt-3">Already have an account? <a href="/login" class="custom-link">Login here</a></p>
 
-    <div th:if="${error}" class="alert alert-danger mt-3 text-center">
-        User already present.
+    <div class="social-icons mt-3">
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
 </div>
 
 <!-- Footer -->
 <footer class="footer">
-    <p>&copy; 2024 Code With Goldencat. All rights reserved. | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
+    <p>&copy; 2024 BMCI Bank. All rights reserved. Abdelali EL Amine | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
 </footer>
 
 </body>
